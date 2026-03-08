@@ -1,19 +1,20 @@
-import { ChangeDetectionStrategy, Component, inject, Input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import {
+  TextMessageEvent,
+  TextMessageBoxEvent,
   ChatMessage,
   MyMessage,
   TextMessageBox,
   TextMessageBoxFile,
-  TextMessageEvent,
-  TypingLoader,
   TextMessageBoxSelector,
-  TextMessageBoxEvent,
+  TypingLoader,
 } from '@components/index';
 import { Message } from '@interfaces/message.interface';
 import { OpenAiService } from 'app/presentation/services/openai.service';
 
 @Component({
-  selector: 'app-orthography-page',
+  selector: 'app-chat-template',
   imports: [
     ChatMessage,
     MyMessage,
@@ -22,11 +23,11 @@ import { OpenAiService } from 'app/presentation/services/openai.service';
     TextMessageBoxFile,
     TextMessageBoxSelector,
   ],
-  templateUrl: './orthographyPage.html',
+  templateUrl: './chatTemplate.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class OrthographyPage {
-  public messages = signal<Message[]>([{ text: 'Hola mundo', isGpt: true }]);
+export class ChatTemplate {
+  public messages = signal<Message[]>([]);
   public isLoading = signal(false);
   public openAiService = inject(OpenAiService);
 
@@ -38,5 +39,7 @@ export default class OrthographyPage {
     console.log({ prompt, file });
   }
 
-  handleMessageWithSelect(event: TextMessageBoxEvent) {}
+  handleMessageWithSelect(event: TextMessageBoxEvent) {
+    console.log(event);
+  }
 }
