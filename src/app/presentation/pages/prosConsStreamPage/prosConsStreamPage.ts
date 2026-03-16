@@ -1,12 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import {
-  TextMessageEvent,
-  TextMessageBoxEvent,
-  ChatMessage,
-  MyMessage,
-  TextMessageBox,
-  TypingLoader,
-} from '@components/index';
+import { ChatMessage, MyMessage, TextMessageBox, TypingLoader } from '@components/index';
 import { Message } from '@interfaces/message.interface';
 import { OpenAiService } from 'app/presentation/services/openai.service';
 
