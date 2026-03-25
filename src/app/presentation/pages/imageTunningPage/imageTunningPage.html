@@ -18,7 +18,11 @@
 
       @for (message of messages(); track $index) {
         @if (message.isGpt) {
-          <app-chat-message [text]="message.text" [imageInfo]="message.imageInfo" />
+          <app-gpt-message-editable-image
+            [text]="message.text"
+            [imageInfo]="message.imageInfo!"
+            (onSelectedImage)="handleImageChange($event, message.imageInfo!.url)"
+          />
         } @else {
           <app-my-message [text]="message.text" />
         }

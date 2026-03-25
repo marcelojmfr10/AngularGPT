@@ -14,7 +14,7 @@ export const imageVariationUseCase = async (originalImage: string): Promise<Gene
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        originalImage,
+        baseImage: originalImage,
       }),
     });
 

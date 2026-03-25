@@ -6,3 +6,4 @@ export * from './typingLoader/typingLoader';
 export * from './text-boxes/textMessageBox/textMessageBox';
 export * from './text-boxes/textMessageBoxFile/textMessageBoxFile';
 export * from './text-boxes/textMessageBoxSelector/textMessageBoxSelector';
+export * from './chat-bubbles/gptMessageEditableImage/gptMessageEditableImage';
